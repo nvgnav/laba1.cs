@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace laba1.cs
 {
@@ -22,13 +22,15 @@ namespace laba1.cs
             Console.WriteLine("Тестирование ArrList:");
             ArrList arrList = new ArrList(); // создаем новый список
 
+            
             arrList.Add(1); // добавляем элемент в список
             arrList.Add(2); // добавляем элемент в список
             arrList.Add(3); // добавляем элемент в список
             arrList.Add(3); // добавляем элемент в список
-            arrList.Add(4); // добавляем элемент в список
+            arrList.Add(4); // добавляем элемент в список       
             arrList.Add(3); // добавляем элемент в список
-            Console.WriteLine("Элемент с наибольшим количеством повторений: " + arrList.MostRepeatingElement());
+
+            arrList.FindMostFrequent(); //huy
 
             Console.WriteLine();
 
@@ -52,7 +54,7 @@ namespace laba1.cs
             chainList.Add(3); // добавляем элемент в список
             chainList.Add(4); // добавляем элемент в список
             chainList.Add(3); // добавляем элемент в список
-            Console.WriteLine("Элемент с наибольшим количеством повторений: " + chainList.MostRepeatingElement());
+            chainList.FindMostFrequent();
 
             Console.WriteLine("До удаления дубликатов:");
             chainList.Print(); // выводим элементы списка
