@@ -208,35 +208,30 @@ namespace laba1.cs
             }
         }
 
-        public int MostRepeatingElement()
+        public void FindMostFrequent()
         {
-            if (cnt == 0)
+            int curr_frqsy = 1;
+            int curr_elem;
+
+            int max_frqsy = 0;
+            int max_elem = 0;
+
+            for (int i = 0; i < cnt; i++)
             {
-                throw new InvalidOperationException("Список пуст.");
-            }
-
-            int[] frequency = new int[cnt];
-
-            Node current = head;
-            while (current != null)
-            {
-                frequency[current.Data]++;
-                current = current.Next; 
-            }
-
-            int elementWithMaxRepeating = head.Data;
-            int maxRepeating = frequency[head.Data]; 
-
-            for (int j = 1; j < frequency.Length; j++)
-            {
-                if (frequency[j] > maxRepeating)
+                curr_elem = this[i];
+                for (int j = i + 1; j < cnt; j++)
                 {
-                    maxRepeating = frequency[j]; 
-                    elementWithMaxRepeating = j; 
+                    if (curr_elem == this[j]) curr_frqsy++;
                 }
+                if (curr_frqsy > max_frqsy)
+                {
+                    max_frqsy = curr_frqsy;
+                    max_elem = curr_elem;
+                }
+                curr_frqsy = 1;
             }
-
-            return elementWithMaxRepeating; 
+            if (max_frqsy > 1) { Console.WriteLine($"Самый частый элемент в ChainList = {max_elem}, кол-во повторов = {max_frqsy}"); }
+            else { Console.WriteLine("Нет ни одного повторяющегося элемента"); }
         }
     }
 }
